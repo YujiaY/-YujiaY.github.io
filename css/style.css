@@ -150,15 +150,15 @@ body {
 
 .btn-text:link, .btn-text:visited {
   font-size: 1.6rem;
-  color: #55c57a;
+  color: #4bc59b;
   display: inline-block;
   text-decoration: none;
-  border-bottom: 1px solid #55c57a;
+  border-bottom: 1px solid #4bc59b;
   padding: 3px;
   transition: all .2s; }
 
 .btn-text:hover {
-  background-color: #55c57a;
+  background-color: #4bc59b;
   color: #fff;
   box-shadow: 0 1rem 2 rem rgba(0, 0, 0, 0.15);
   transform: translateY(-2px); }
@@ -166,6 +166,33 @@ body {
 .btn-text:active {
   box-shadow: 0 1rem 2 rem rgba(0, 0, 0, 0.15);
   transform: translateY(2px); }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 28%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    transition: all .2s;
+    outline-offset: 15px; }
+    .composition__photo--left {
+      left: 27%;
+      top: -2rem; }
+    .composition__photo--right {
+      left: 52%;
+      top: 2rem; }
+    .composition__photo--bottom {
+      left: 38%;
+      top: 15rem; }
+    .composition__photo:hover {
+      outline: 1.5rem solid #4bc59b;
+      transform: scale(1.1) translateY(-0.8rem);
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.6);
+      z-index: 2; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.9);
+    opacity: .6; }
 
 .header {
   height: 95vh;
