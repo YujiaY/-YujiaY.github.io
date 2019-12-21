@@ -9,6 +9,7 @@
   background-position: top;
   position: relative;
 
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 0 92%);
   clip-path: polygon(0 0, 100% 0, 100% 78%, 0 92%);
 
   &__logo-box {
