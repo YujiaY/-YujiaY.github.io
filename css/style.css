@@ -56,7 +56,8 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  min-width: 300px; }
   @media (max-width: 75em) {
     html {
       font-size: 56.25%; } }
@@ -344,6 +345,39 @@ body {
   .card__info-date {
     font-size: 2.5rem;
     font-weight: 300; }
+  @media (max-width: 56.25em) {
+    .card {
+      height: auto;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+      overflow: hidden; }
+      .card__side {
+        height: auto;
+        border-radius: 0;
+        position: relative;
+        box-shadow: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px; }
+        .card__side--back {
+          transform: rotateY(0);
+          -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
+      .card:hover .card__side--front {
+        transform: rotateY(0); }
+      .card__details {
+        padding: 1rem 3rem; }
+      .card__cta {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0);
+        width: 100%;
+        padding: 7rem 4rem 4rem 4rem; }
+      .card__info-box {
+        margin-bottom: 3rem; }
+      .card__info-date {
+        font-size: 2.5rem; } }
 
 .composition {
   position: relative; }
@@ -352,17 +386,40 @@ body {
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
     border-radius: 2px;
     position: absolute;
+    z-index: 3;
     transition: all .2s;
-    outline-offset: 15px; }
+    outline-offset: 2rem; }
+    @media (max-width: 56.25em) {
+      .composition__photo {
+        float: left;
+        position: relative;
+        width: 33.33333%;
+        box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2); } }
     .composition__photo--left {
       left: 27%;
       top: -2rem; }
+      @media (max-width: 56.25em) {
+        .composition__photo--left {
+          left: 0;
+          top: 0;
+          transform: scale(1.1); } }
     .composition__photo--right {
       left: 52%;
       top: 2rem; }
-    .composition__photo--bottom {
+      @media (max-width: 56.25em) {
+        .composition__photo--right {
+          left: 0;
+          top: 1rem;
+          transform: scale(1.05); } }
+    .composition__photo--middle {
       left: 38%;
       top: 15rem; }
+      @media (max-width: 56.25em) {
+        .composition__photo--middle {
+          left: 0;
+          top: -1rem;
+          transform: scale(1.15);
+          z-index: 5; } }
     .composition__photo:hover {
       outline: 1.5rem solid #4bc59b;
       transform: scale(1.1) translateY(-0.8rem);
@@ -380,6 +437,9 @@ body {
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform .3s; }
+  @media (max-width: 56.25em) {
+    .feature-box {
+      padding: 2rem; } }
   .feature-box__icon {
     font-size: 6rem;
     margin-bottom: .5rem;
@@ -387,8 +447,15 @@ body {
     background-image: linear-gradient(to right, #7ed56f, #28b485);
     -webkit-background-clip: text;
     color: transparent; }
+    @media (max-width: 56.25em) {
+      .feature-box__icon {
+        margin-bottom: 0; } }
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.03); }
+
+@media (max-width: 56.25em) {
+  .form {
+    max-width: 90rem; } }
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
@@ -405,6 +472,10 @@ body {
   width: 90%;
   display: block;
   transition: all .3s; }
+  @media (max-width: 56.25em) {
+    .form__input {
+      width: 100%;
+      margin-bottom: 2rem; } }
   .form__input:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -430,6 +501,10 @@ body {
 .form__radio-group {
   width: 49%;
   display: inline-block; }
+  @media (max-width: 56.25em) {
+    .form__radio-group {
+      width: 100%;
+      margin-bottom: 2rem; } }
 
 .form__radio-input {
   display: none; }
@@ -540,6 +615,14 @@ body {
   padding-left: 9rem;
   font-size: 1.6rem;
   transform: skewX(-12deg); }
+  @media (max-width: 56.25em) {
+    .story {
+      width: 100%;
+      padding: 4rem;
+      padding-left: 7rem; } }
+  @media (max-width: 37.5em) {
+    .story {
+      transform: skewX(0); } }
   .story__shape {
     width: 15rem;
     height: 15rem;
@@ -551,6 +634,9 @@ body {
     clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
     position: relative; }
+    @media (max-width: 37.5em) {
+      .story__shape {
+        transform: translateX(-3rem) skewX(0); } }
   .story__image {
     height: 100%;
     transform: translateX(-4rem) scale(1.4);
@@ -558,6 +644,9 @@ body {
     transition: all .5s; }
   .story__text {
     transform: skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .story__text {
+        transform: skewX(0); } }
   .story__caption {
     position: absolute;
     top: 50%;
@@ -879,7 +968,7 @@ body {
     transform: skewY(7deg); }
   @media (max-width: 56.25em) {
     .section-features {
-      padding: 15rem 0; } }
+      padding: 10rem 0; } }
 
 .section-frameworks {
   background-color: #f7f7f7;
@@ -904,11 +993,29 @@ body {
       padding: 10rem 0; } }
 
 .booking {
+  width: 83%;
+  margin: 0 auto;
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
-  background-size: 100%;
+  background-size: cover;
   border-radius: 5px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
-  height: 50rem; }
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 75em) {
+    .booking {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 70%, transparent 70%), url(../img/nat-10.jpg); } }
+  @media (max-width: 56.25em) {
+    .booking {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg);
+      background-size: cover;
+      width: 70%; } }
+  @media (max-width: 37.5em) {
+    .booking {
+      width: 90%; } }
   .booking__form {
     width: 50%;
     padding: 6rem; }
+    @media (max-width: 75em) {
+      .booking__form {
+        width: 60%; } }
+    @media (max-width: 56.25em) {
+      .booking__form {
+        width: 100%; } }

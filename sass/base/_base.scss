@@ -10,6 +10,7 @@ html {
   //This defines what 1rem is,
   // so it is put here instead of in ./_typography.scss
   font-size: 62.5%; // Need 1rem = 10px; so ==> 10px/16px = 62.5%
+  min-width: 300px;
 
   @include respond(tab-land) {
     font-size: 56.25%; // Need 1rem = 9px; so ==> 9px/16px = 56.25%

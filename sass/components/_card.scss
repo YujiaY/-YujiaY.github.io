@@ -128,4 +128,51 @@
     font-size: 2.5rem;
     font-weight: 300;
   }
+
+  @include respond(tab-port) {
+    height: auto;
+    border-radius: 10px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    overflow: hidden;
+
+    &__side {
+      height: auto;
+      border-radius: 0;
+      position: relative;
+      box-shadow:none;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      &--back{
+        transform: rotateY(0);
+        -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    //Back side styling
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+
+    }
+    &__info-box {
+      margin-bottom: 3rem;
+    }
+    &__info-date {
+      font-size: 2.5rem;
+    }
+  }
 }
