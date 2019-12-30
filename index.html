@@ -34,7 +34,11 @@
 
     <header class="header">
       <div class="header__logo-box">
-        <img src="img/Believe_In_Magic.svg" alt="Logo" class="header__logo">
+        <img srcset="img/Believe_In_Magic-1x.png 1x, img/Believe_In_Magic-2x.png 2x"
+             alt="Logo"
+             class="header__logo"
+             src="img/Believe_In_Magic-2x.png"
+        >
       </div>
 
       <div class="header__text-box">
@@ -69,9 +73,24 @@
           </div>
           <div class="col-1-of-2">
             <div class="composition">
-              <img src="img/img_html.jpg" alt="HTML" class="composition__photo composition__photo--left">
-              <img src="img/img_js.jpg" alt="JS" class="composition__photo composition__photo--middle">
-              <img src="img/img_css.jpg" alt="CSS" class="composition__photo composition__photo--right">
+              <img srcset="img/img_html.png 368w, img/img_html_large.png 736w"
+                   sizes="(max-width: 56.25em) 13vw, (max-width: 37.5em) 21vw, 300px"
+                   alt="HTML"
+                   class="composition__photo composition__photo--left"
+                   src="img/img_html.png"
+              >
+              <img srcset="img/img_js.png 368w, img/img_js_large.png 736w"
+                   sizes="(max-width: 56.25em) 13vw, (max-width: 37.5em) 21vw, 300px"
+                   alt="JS"
+                   class="composition__photo composition__photo--middle"
+                   src="img/img_js.png"
+              >
+              <img srcset="img/img_css.png 368w, img/img_css_large.png 736w"
+                   sizes="(max-width: 56.25em) 13vw, (max-width: 37.5em) 21vw, 300px"
+                   alt="CSS"
+                   class="composition__photo composition__photo--right"
+                   src="img/img_css.png"
+              >
             </div>
           </div>
         </div>
@@ -318,7 +337,14 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="img/logo-2x.svg" alt="Logo" class="footer__logo">
+        <picture class="footer__logo-box">
+          <source srcset="img/Believe_in_Magic_PNG_small-1x.png 1x, img/Believe_in_Magic_PNG_small-2x.png 2x"
+                  media="(max-width: 37.5em">
+          <img srcset="img/Believe_In_Magic-1x.png 1x, img/Believe_In_Magic-2x.png 2x"
+               alt="Footer Logo"
+               src="img/Believe_In_Magic-2x.png"
+          >
+        </picture>
       </div>
       <div class="row">
         <div class="col-1-of-2">
