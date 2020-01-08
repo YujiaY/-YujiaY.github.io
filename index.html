@@ -6,33 +6,33 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet" type="text/css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<!--    For Development:-->
-    <!--    <link rel="stylesheet" href="css/icon-font.css">-->
-    <!--    <link rel="stylesheet" href="css/style.css">-->
-    <link rel="stylesheet" href="css/style.min.css">
+<!--        For Development:-->
+        <link rel="stylesheet" href="css/icon-font.css">
+        <link rel="stylesheet" href="css/style.css">
+    <!--    For Deployment:-->
+<!--    <link rel="stylesheet" href="css/style.min.css">-->
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <title>Magic IT | Exciting magic for people</title>
   </head>
   <body>
 
-    <div class="navigation">
-      <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-      <label for="navi-toggle" class="navigation__button">
-        <span class="navigation__icon">&nbsp;</span>
-      </label>
-      <div class="navigation__background">&nbsp;</div>
-
-      <nav class="navigation__nav">
-        <ul class="navigation__list">
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>ABOUT Magic IT</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benefits</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular Frameworks</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
-        </ul>
-      </nav>
-
-    </div>
+    <nav class="navigation__nav top-right open">
+      <a href="#booking" class="navigation__disc l1">
+        <div class="navigation__item">Book now</div>
+      </a>
+      <a href="#stories" class="navigation__disc l2">
+        <div class="navigation__item">Stories</div>
+      </a>
+      <a href="#frameworks" class="navigation__disc l3">
+        <div class="navigation__item">Popular Frameworks</div>
+      </a>
+      <a href="#about" class="navigation__disc l4">
+        <div class="navigation__item">ABOUT Magic IT</div>
+      </a>
+      <a class="navigation__disc l5 navigation__toggle">
+        Menu
+      </a>
+    </nav>
 
     <header class="header">
       <div class="header__logo-box">
@@ -48,12 +48,12 @@
           <span class="header-primary--main">MagicIT</span>
           <span class="header-primary--sub">where magic happens</span>
         </h1>
-        <a href="#section-frameworks" class="btn btn--white btn--header">Discover our services</a>
+        <a href="#frameworks" class="btn btn--white btn--header">Discover our services</a>
       </div>
     </header>
 
     <main>
-      <section class="section-about">
+      <section id="about" class="section-about">
         <div class="u-center-text u-margin-bottom-big">
           <h2 class="heading-secondary">
             Amazing solutions for mystical issues
@@ -135,7 +135,7 @@
         </div>
       </section>
 
-      <section class="section-frameworks" id="section-frameworks">
+      <section id="frameworks" class="section-frameworks" id="section-frameworks">
         <div class="u-center-text u-margin-bottom-big">
           <h2 class="heading-secondary">
             Most popular frameworks
@@ -239,7 +239,7 @@
         </div>
       </section>
 
-      <section class="section-stories">
+      <section id="stories" class="section-stories">
         <div class="bg-video">
           <video class="bg-video__content" autoplay muted loop>
             <source src="img/video.mp4" type="video/mp4">
@@ -291,7 +291,7 @@
         </div>
       </section>
 
-      <section class="section-booking" id="section-booking">
+      <section id="booking" class="section-booking" id="section-booking">
           <div class="booking">
             <div class="booking__form">
               <div class="u-margin-bottom-medium">
@@ -424,16 +424,62 @@
           <img src="img/nat-9.jpg" alt="Customer Photo" class="popup__img">
         </div>
         <div class="popup__right">
-          <a href="#section-frameworks" class="popup__close">&times;</a>
+          <a href="#frameworks" class="popup__close">&times;</a>
           <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
           <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
           <p lang="en" class="popup__text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa tincidunt dui ut ornare lectus sit amet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Dui nunc mattis enim ut. Leo duis ut diam quam nulla porttitor massa. Arcu non sodales neque sodales ut etiam sit amet. Maecenas pharetra convallis posuere morbi leo urna molestie. Sed elementum tempus egestas sed sed risus pretium quam. Sit amet porttitor eget dolor morbi non arcu. Pharetra magna ac placerat vestibulum lectus mauris. Lobortis elementum nibh tellus molestie. Natoque penatibus et magnis dis. Quis imperdiet massa tincidunt nunc pulvinar sapien.
           </p>
-          <a href="#section-booking" class="btn btn--green">Book now</a>
+          <a href="#booking" class="btn btn--green">Book now</a>
         </div>
       </div>
     </div>
 
+    <script>
+      toggle = document.querySelectorAll(".navigation__toggle")[0];
+      nav = document.querySelectorAll("nav")[0];
+      toggle_open_text = 'Menu';
+      toggle_close_text = 'Close';
+
+      toggle.addEventListener('click', function(e) {
+        nav.classList.toggle('open');
+        e.stopPropagation();
+
+        if (nav.classList.contains('open')) {
+          toggle.innerHTML = toggle_close_text;
+          window.addEventListener("click", closeNav);
+        } else {
+          toggle.innerHTML = toggle_open_text;
+          window.removeEventListener("click", closeNav);
+        }
+      }, false);
+
+      setTimeout(function(){
+        nav.classList.toggle('open');
+      }, 800);
+
+      function closeNav(e) {
+        e.stopPropagation();
+        nav.classList.toggle('open');
+        toggle.innerHTML = nav.classList.contains('open') ? toggle_close_text :toggle_open_text
+          window.removeEventListener("click", closeNav)
+      }
+      // close hamburger menu after click a
+      // $( '.menu li a' ).on("click", function(){
+      //   $('#hamburger-menu').click();
+      // });
+
+      // toggleBtn = document.querySelectorAll(".navigation__button")[0];
+      // nav = document.querySelectorAll(".navigation")[0];
+      // // toggle_open_text = 'Menu';
+      // // toggle_close_text = 'Close';
+      //
+      // toggleBtn.addEventListener('click', function() {
+      //   toggleBtn.checked = false;
+      // });
+      // nav.addEventListener('click', function() {
+      //   toggleBtn.checked = false;
+      // });
+    </script>
   </body>
 </html>
